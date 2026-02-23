@@ -1,0 +1,29 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": "ssm:GetParameter",
+			"Resource": "arn:aws:ssm:YOUR_AWS_REGION:YOUR_ACCOUNT_ID:parameter/minecraft/*"
+		},
+		{
+			"Sid": "SetFleetIDinSSM",
+			"Effect": "Allow",
+			"Action": "ssm:PutParameter",
+			"Resource": [
+				"arn:aws:ssm:YOUR_AWS_REGION:YOUR_ACCOUNT_ID:parameter/minecraft/fleet_id"
+			]
+		},
+		{
+			"Sid": "AllowSSMCommand",
+			"Effect": "Allow",
+			"Action": [
+				"ssm:SendCommand",
+				"ssm:GetCommandInvocation"
+			],
+			"Resource": [
+				"*"
+			]
+		}
+	]
+}

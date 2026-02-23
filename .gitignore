@@ -1,0 +1,8 @@
+.env
+config.env
+notes.md
+venv/
+layer/*.zip
+layer/python/
+__pycache__/
+*.pyc

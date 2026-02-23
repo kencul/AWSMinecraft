@@ -1,0 +1,38 @@
+{
+    "LaunchTemplateConfigs": [
+    {
+        "LaunchTemplateSpecification": {
+            "LaunchTemplateId": "YOUR_LAUNCH_TEMPLATE_ID",
+            "Version": "$Latest"
+        },
+        "Overrides": [
+                {
+                    "SubnetId": "YOUR_SUBNET_ID",
+                    "InstanceRequirements": {
+                        "ExcludedInstanceTypes": [],
+                        "AllowedInstanceTypes": [],
+                        "VCpuCount": {
+                            "Min": 2,
+                            "Max": 2
+                        },
+                        "MemoryMiB": {
+                            "Min": 2048,
+                            "Max": 5000
+                        },
+                        "BurstablePerformance": "included"
+                    }
+                }
+            ]
+    }
+    ],
+    "TargetCapacitySpecification": {
+        "TotalTargetCapacity": 1,
+        "SpotTargetCapacity":1,
+        "DefaultTargetCapacityType": "spot"
+    },
+    "ExcessCapacityTerminationPolicy": "termination",
+    "SpotOptions":{
+        "AllocationStrategy": "priceCapacityOptimized"
+    },
+    "Type": "maintain"
+}

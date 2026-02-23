@@ -1,0 +1,16 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:DescribeSpotFleetRequests",
+				"ec2:CancelSpotFleetRequests",
+				"ec2:DescribeInstances",
+				"ec2:DescribeFleets",
+				"ec2:ModifyFleet"
+			],
+			"Resource": "*"
+		}
+	]
+}

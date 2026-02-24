@@ -6,3 +6,4 @@ layer/*.zip
 layer/python/
 __pycache__/
 *.pyc
+*.png

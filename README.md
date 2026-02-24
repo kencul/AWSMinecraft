@@ -8,7 +8,7 @@ Traditional 24/7 cloud hosting is expensive. This system treats infrastructure a
 
 * **Discord Control**: Anyone with permission can wake the server using `/start`.
 * **Spot Pricing**: Uses AWS Spot Instances for up to 90% cost savings.
-* **Auto-Shutdown**: Automatically sets Spot Fleet capacity to 0 after 10 minutes of inactivity.
+* **Auto-Shutdown**: Automatically sets Spot Fleet capacity to 0 after configurable amount of inactivity.
 * **Data Persistence**: World data is stored on a persistent EBS volume that automatically re-attaches to new instances on boot.
 
 ---
@@ -63,7 +63,7 @@ The EBS volume acts as the persistent storage for your world. Because Spot insta
 
 ### Step 2: Custom AMI
 
-To ensure the server boots in under two minutes, we use a custom AMI with dependencies pre-installed.
+To ensure the server boots in under a minute, we use a custom AMI with dependencies pre-installed.
 
 1. **Launch Instance**: Launch a temporary instance using **Amazon Linux 2023** with **ARM (64-bit)** architecture.
 2. **Install Base Packages**: SSH in and run:
@@ -173,14 +173,14 @@ This produces `layer/pynacl-layer.zip`.
 
 Once setup is complete, **start here for the first launch:**
 1. Run `/start_fleet` in your Discord server to create the initial EC2 Fleet and store its ID in SSM. This must be done by an authorized user.
-2. Run `/start` to set the fleet capacity to 1 and boot the server. It will be ready in ~2 minutes.
+2. Run `/start` to set the fleet capacity to 1 and boot the server. It will be ready in less than a minute.
 
 Subsequent uses only need `/start`. `/start_fleet` is only needed again if the fleet is fully deleted.
 
 **Available commands:**
 
 * **`/help`**: Shows all available commands.
-* **`/start`**: Scales the existing Spot Fleet from 0 to 1. The server will be ready in ~2 minutes.
+* **`/start`**: Scales the existing Spot Fleet from 0 to 1. The server will be ready in a minute.
 * **`/status`**: Checks the live status of the server, including the player count and current IP.
 * **`/command [minecraft_command]`**: (Admin Only) Sends a command directly to the Minecraft console via SSM (e.g., `/command say Hello World`).
 * **`/start_fleet`**: (Admin Only) Re-initializes a new Spot Fleet request if the previous one was deleted.

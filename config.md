@@ -20,7 +20,7 @@ This file lists every placeholder value in the project that you must replace bef
 |---|---|---|
 | `YOUR_AWS_REGION` | The AWS region you are deploying to | `us-east-1`, `ap-northeast-1`, `eu-west-1` |
 
-> ⚠️ Your EBS volume, Subnet, Launch Template, and SSM parameters must **all be in the same region**.
+> Your EBS volume, Subnet, Launch Template, and SSM parameters must **all be in the same region**.
 
 **Used in:** `awsInfra/iamPolicies/MinecraftGetSSMParameter.json`, `awsInfra/iamPolicies/MinecraftSSMParameterReadAccess.json`
 
@@ -35,7 +35,7 @@ Also set this as the `MY_AWS_REGION` **environment variable** in your Lambda fun
 | `YOUR_LAUNCH_TEMPLATE_ID` | The ID of your EC2 Launch Template | EC2 → Launch Templates → your template → *Template ID* column |
 | `YOUR_SUBNET_ID` | The subnet to launch instances in | VPC → Subnets → the subnet in your chosen Availability Zone |
 
-> ⚠️ The subnet must be in the **same Availability Zone** as your EBS volume.
+> The subnet must be in the **same Availability Zone** as your EBS volume.
 
 ---
 
